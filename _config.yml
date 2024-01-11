@@ -23,10 +23,11 @@ title: Ace of Blades
 email: cvillecsteele@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Ace of Blades tabletop roleplaying game
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://acerpg.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: cvillecsteele
 favicon: "" # the favicon for your site
+destination: docs/
 # twitter_username: jekyllrb
 
 # Build settings
@@ -42,17 +43,19 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - CNAME
+  - README
 
 remote_theme: "jeffreytse/jekyll-theme-yat"
 
@@ -71,11 +74,6 @@ remote_theme: "jeffreytse/jekyll-theme-yat"
 #   "Copyright © 2017-2021 Foobar"
 #
 copyright: "(cleft) 2023-{currentYear} {author}"
-
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
 
 # Yat date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
