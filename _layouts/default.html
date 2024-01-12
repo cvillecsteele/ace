@@ -18,35 +18,11 @@
     {%- include extensions/click-to-top.html -%}
 
     <main class="page-content" aria-label="Content">
+
       {%- if page.layout == "home" -%}
-      <div class="container">
-	<div class="fixed" style="display:flex;justify-content:center;flex-direction:row;">
-	  <div style="width:50%">
-	    <h3>THIS IS EASY!</h3> 
-	    <div >Ace is simple and fun.
-	      Quick to learn but with real depth.  Start playing, not
-	      looking stuff up.
-	    </div>
-	  </div>
-	</div>
-	<div class="fixed" style="display:flex;justify-content:center;flex-direction:row;">
-	  <div style="width:50%">
-	    <h3>PICK A CARD</h3> 
-	    <div >Ace uses card based mechanics, so you decide when
-	    your character succeeds or fails.
-	    </div>
-	  </div>
-	</div>
-	<div class="fixed" style="display:flex;justify-content:center;flex-direction:row;">
-	  <div style="width:50%">
-	    <h3>JUST ONE BOOK</h3> 
-	    <div >You don't need a whole bookself, just one book with
-	    rules, characters, monsters and more.
-	    </div>
-	  </div>
-	</div>
-      </div>
+      {%- include views/landing.html -%}
       {% endif %}
+
       <div class="wrapper">
         {{ content }}
       </div>
