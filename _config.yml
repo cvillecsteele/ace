@@ -22,7 +22,7 @@ author: Iron Brothers Games, LLC
 title: Ace of Blades
 email: cvillecsteele@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Ace of Blades tabletop roleplaying game
+  Home of Ace of Blades tabletop roleplaying game
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://acerpg.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: cvillecsteele
