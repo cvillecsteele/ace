@@ -1,0 +1,7 @@
+.container { padding-top: 10px; padding-bottom: 10px; color: black; background-color: darkgrey; display: flex; justify-content: center; flex-direction: row; flex-wrap: wrap; }
+
+.fixed { width: 400px; }
+
+.flex-item { flex-grow: 1; }
+
+.page-content { padding-top: 12px; }

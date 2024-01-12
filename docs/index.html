@@ -4,13 +4,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Ace of Blades | Ace of Blades tabletop roleplaying game</title>
+<title>Ace of Blades | Home of Ace of Blades tabletop roleplaying game</title>
 <meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Ace of Blades" />
 <meta name="author" content="Iron Brothers Games, LLC" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Ace of Blades tabletop roleplaying game" />
-<meta property="og:description" content="Ace of Blades tabletop roleplaying game" />
+<meta name="description" content="Home of Ace of Blades tabletop roleplaying game" />
+<meta property="og:description" content="Home of Ace of Blades tabletop roleplaying game" />
 <link rel="canonical" href="http://localhost:4000/" />
 <meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="Ace of Blades" />
@@ -18,13 +18,14 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Ace of Blades" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Iron Brothers Games, LLC"},"description":"Ace of Blades tabletop roleplaying game","headline":"Ace of Blades","name":"Ace of Blades","url":"http://localhost:4000/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Iron Brothers Games, LLC"},"description":"Home of Ace of Blades tabletop roleplaying game","headline":"Ace of Blades","name":"Ace of Blades","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="icon" href="">
   <link rel="canonical" href="http://localhost:4000">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
   <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ace of Blades" /><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
@@ -549,11 +550,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
       background: rgba(0, 0, 0, 0.8);
     }
   </style><style>html .page-banner {
-      height:  235.52px;
-      min-height: 640px;
+      height:  161.92px;
+      min-height: 440px;
     }
     html[data-scroll-status="top"] .page-banner {
-      height: 640px;
+      height: 440px;
     }
   </style><style>
     html .page-banner .page-banner-img > *:first-child {
@@ -624,113 +625,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
   });
 </script>
-<div class="theme-toggle">
-  <input type="checkbox" id="theme-switch">
-  <label for="theme-switch">
-    <div class="toggle"></div>
-    <div class="names">
-      <p class="light">Light</p>
-      <p class="dark">Dark</p>
-    </div>
-  </label>
-</div>
-
-
-
-
-<script>
-  (function() {
-    var sw = document.getElementById('theme-switch');
-    var html = document.getElementsByTagName('html')[0];
-    var nightModeOption = ('auto' || 'auto').toLowerCase();
-    var storage = nightModeOption === 'manual'
-        ? localStorage
-        : sessionStorage;
-    var themeData = loadThemeData();
-
-    function saveThemeData(data) {
-      storage.setItem('theme', JSON.stringify(data));
-    }
-
-    function loadThemeData() {
-      var data = storage.getItem('theme');
-      try {
-        data = JSON.parse(data ? data : '');
-      } catch(e) {
-        data = { nightShift: undefined, autoToggleAt: 0 };
-        saveThemeData(data);
-      }
-      return data;
-    }
-
-    function handleThemeToggle(nightShift) {
-      themeData.nightShift = nightShift;
-      saveThemeData(themeData);
-      html.dataset.theme = nightShift ? 'dark' : 'light';
-      setTimeout(function() {
-        sw.checked = nightShift ? true : false;
-      }, 50);
-    }
-
-    function autoThemeToggle() {
-      // Next time point of theme toggle
-      var now = new Date();
-      var toggleAt = new Date();
-      var hours = now.getHours();
-      var nightShift = hours >= 19 || hours <=7;
-
-      if (nightShift) {
-        if (hours > 7) {
-          toggleAt.setDate(toggleAt.getDate() + 1);
-        }
-        toggleAt.setHours(7);
-      } else {
-        toggleAt.setHours(19);
-      }
-
-      toggleAt.setMinutes(0);
-      toggleAt.setSeconds(0);
-      toggleAt.setMilliseconds(0)
-
-      var delay = toggleAt.getTime() - now.getTime();
-
-      // auto toggle theme mode
-      setTimeout(function() {
-        handleThemeToggle(!nightShift);
-      }, delay);
-
-      return {
-        nightShift: nightShift,
-        toggleAt: toggleAt.getTime()
-      };
-    }
-
-    // Listen the theme toggle event
-    sw.addEventListener('change', function(event) {
-      handleThemeToggle(event.target.checked);
-    });
-
-    if (nightModeOption == 'auto') {
-      var data = autoThemeToggle();
-
-      // Toggle theme by local setting
-      if (data.toggleAt > themeData.autoToggleAt) {
-        themeData.autoToggleAt = data.toggleAt;
-        handleThemeToggle(data.nightShift);
-      } else {
-        handleThemeToggle(themeData.nightShift);
-      }
-    } else if (nightModeOption == 'manual') {
-      handleThemeToggle(themeData.nightShift);
-    } else {
-      var nightShift = themeData.nightShift;
-      if (nightShift === undefined) {
-        nightShift = nightModeOption === 'on';
-      }
-      handleThemeToggle(nightShift);
-    }
-  })();
-</script>
 <div id="click-to-top" class="click-to-top">
   <i class="fa fa-arrow-up"></i>
 </div>
@@ -749,7 +643,33 @@ document.addEventListener('DOMContentLoaded', function(event) {
     });
   })();
 </script>
-<main class="page-content" aria-label="Content"><div>above wrapper</div>
+<main class="page-content" aria-label="Content"><div class="container">
+	<div class="fixed" style="display:flex;justify-content:center;flex-direction:row;">
+	  <div style="width:50%">
+	    <h3>THIS IS EASY!</h3> 
+	    <div >Ace is simple and fun.
+	      Quick to learn but with real depth.  Start playing, not
+	      looking stuff up.
+	    </div>
+	  </div>
+	</div>
+	<div class="fixed" style="display:flex;justify-content:center;flex-direction:row;">
+	  <div style="width:50%">
+	    <h3>PICK A CARD</h3> 
+	    <div >Ace uses card based mechanics, so you decide when
+	    your character succeeds or fails.
+	    </div>
+	  </div>
+	</div>
+	<div class="fixed" style="display:flex;justify-content:center;flex-direction:row;">
+	  <div style="width:50%">
+	    <h3>JUST ONE BOOK</h3> 
+	    <div >You don't need a whole bookself, just one book with
+	    rules, characters, monsters and more.
+	    </div>
+	  </div>
+	</div>
+      </div>
       
       <div class="wrapper">
         <div class="framework">
