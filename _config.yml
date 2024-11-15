@@ -24,7 +24,7 @@ destination: docs/
 # twitter_username: jekyllrb
 
 # Build settings
-theme: minima
+# theme: minima
 plugins:
   - jekyll-feed
 
@@ -50,8 +50,8 @@ exclude:
   - CNAME
   - README
 
-remote_theme: "jeffreytse/jekyll-theme-yat"
-
+# remote_theme: "jeffreytse/jekyll-theme-yat"
+remote_theme: "jeffreytse/jekyll-theme-yat@v1.10.0"
 
 
 # Copyright setting
@@ -66,7 +66,7 @@ remote_theme: "jeffreytse/jekyll-theme-yat"
 #   "Copyright (c) 2017-{currentYear} <a href="https://example.com">{author}</a>"
 #   "Copyright © 2017-2021 Foobar"
 #
-copyright: "(cleft) 2023-{currentYear} {author}"
+copyright: "(cleft) 2024-{currentYear} {author}"
 
 # Yat date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this

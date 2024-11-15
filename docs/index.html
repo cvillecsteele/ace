@@ -5,33 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Ace of Blades | Home of Ace of Blades tabletop roleplaying game</title>
-<meta name="generator" content="Jekyll v3.9.2" />
+<meta name="generator" content="Jekyll v3.9.3" />
 <meta property="og:title" content="Ace of Blades" />
 <meta name="author" content="Iron Brothers Games, LLC" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Home of Ace of Blades tabletop roleplaying game" />
 <meta property="og:description" content="Home of Ace of Blades tabletop roleplaying game" />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
+<link rel="canonical" href="https://acerpg.com/" />
+<meta property="og:url" content="https://acerpg.com/" />
 <meta property="og:site_name" content="Ace of Blades" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Ace of Blades" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Iron Brothers Games, LLC"},"description":"Home of Ace of Blades tabletop roleplaying game","headline":"Ace of Blades","name":"Ace of Blades","url":"http://localhost:4000/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Iron Brothers Games, LLC"},"description":"Home of Ace of Blades tabletop roleplaying game","headline":"Ace of Blades","name":"Ace of Blades","url":"https://acerpg.com/"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="icon" href="">
-  <link rel="canonical" href="http://localhost:4000">
+  <link rel="canonical" href="https://acerpg.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="/assets/css/styles.css">
-  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ace of Blades" /><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://acerpg.com/feed.xml" title="Ace of Blades" /><link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
 <script charset="UTF-8"
-        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"
-        async></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
 
 
 
@@ -119,12 +119,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
     display: none;
   }
 </style>
-<script
-  src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
-<script
-  src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
 <link
-  href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/default-skin/default-skin.css"
   rel="stylesheet"
 />
 <style>
@@ -135,71 +137,149 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 <script>
   function initPhotoSwipe() {
-    let customOptions = {};
+    var mainEl = document.querySelector("section.main");
 
-    try {
-      const data = ``.replaceAll("=>", ":");
-      customOptions = JSON.parse(data);
-    } catch (e) {
-      console.info("Invalid custom photo previewer options! " + e.message);
-    }
-
-    // Define object and gallery options
-    const options = Object.assign(
-      {
-        gallery: "section.main",
-        children: "a.photo-swipe",
-        photo_scale: 2,
-        // dynamic import is not supported in UMD version
-        pswpModule: PhotoSwipe,
-      },
-      customOptions
-    );
-
-    const galleryEl = document.querySelector(options.gallery);
-    if (!galleryEl) {
-      return;
-    }
-
-    const imgEls = [];
-    const els = galleryEl.querySelectorAll("img:not(.emoji)");
-    els.forEach((el) => {
-      if (el.src.trim() == "") {
-        return;
-      }
-      if (!imgEls.includes(el)) {
-        imgEls.push(el);
-      }
-    });
-
-    if (imgEls.length === 0) {
-      return;
-    }
-
+    var imgEls = mainEl.querySelectorAll("img:not(.emoji)");
     imgEls.forEach((imgEl) => {
       imgEl.outerHTML = `
-      <a class="photo-swipe"
-        href="${imgEl.src}"
-        data-pswp-width="${
-          Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
-        }"
-        data-pswp-height="${
-          Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
-        }"
-        data-pswp-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
-        target="_blank">
-        ${imgEl.outerHTML}
-      </a>`;
+    <a class="photo-swipe"
+      href="${imgEl.src}"
+      data-width="${imgEl.getAttribute("width") || imgEl.width * 2}"
+      data-height="${imgEl.getAttribute("height") || imgEl.height * 2}"
+      data-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
+      target="_blank">
+      ${imgEl.outerHTML}
+    </a>`;
     });
 
-    // Initialize PhotoSwipe 5
-    var lightbox = new PhotoSwipeLightbox(options);
+    // Init empty gallery array
+    var container = [];
 
-    lightbox.init();
+    // Loop over gallery items and push it to the array
+    var linkEls = mainEl.querySelectorAll("a.photo-swipe");
+    linkEls.forEach((link) => {
+      var item = {
+        src: link.getAttribute("href"),
+        w: link.dataset.width,
+        h: link.dataset.height,
+        title: link.dataset.caption || "",
+      };
+      container.push(item);
+    });
+
+    // Define click event on gallery item
+    linkEls.forEach((link, index) => {
+      link.addEventListener("click", (event) => {
+        // Prevent location change
+        event.preventDefault();
+
+        // Define object and gallery options
+        var pswp = document.querySelector(".pswp");
+
+        var zoomLevel = 1;
+
+        // Define object and gallery options
+        var options = {
+          index: index,
+          bgOpacity: 0.85,
+          showHideOpacity: true,
+          closeOnScroll: true,
+          maxSpreadZoom: 1,
+          getDoubleTapZoom: (isMouseClick, item) => {
+            if (item.detail) {
+              zoomLevel += item.detail.origEvent.shiftKey ? -1 : 1;
+              item.detail = undefined;
+            } else {
+              zoomLevel = zoomLevel === 1 ? 2 : 1;
+            }
+            if (zoomLevel <= 1) {
+              zoomLevel = 1;
+              setTimeout(() => pswp.classList.remove("pswp--zoomed-in"), 0);
+            }
+            return item.initialZoomLevel * zoomLevel;
+          },
+        };
+
+        // Initialize PhotoSwipe
+        var gallery = new PhotoSwipe(
+          pswp,
+          PhotoSwipeUI_Default,
+          container,
+          options
+        );
+
+        gallery.init();
+
+        // Custom zoom event
+        gallery.container.addEventListener("pswpTap", (e) => {
+          gallery.currItem.detail = e.detail;
+        });
+      });
+    });
   }
 
   window.addEventListener("load", initPhotoSwipe);
 </script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe.
+           It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg"></div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides.
+              PhotoSwipe keeps only 3 of them in the DOM to save memory.
+              Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter"></div>
+        <button
+          class="pswp__button pswp__button--close"
+          title="Close (Esc)"
+        ></button>
+        <button class="pswp__button pswp__button--share" title="Share"></button>
+        <button
+          class="pswp__button pswp__button--fs"
+          title="Toggle fullscreen"
+        ></button>
+        <button
+          class="pswp__button pswp__button--zoom"
+          title="Zoom in/out"
+        ></button>
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip"></div>
+      </div>
+      <button
+        class="pswp__button pswp__button--arrow--left"
+        title="Previous (arrow left)"
+      ></button>
+      <button
+        class="pswp__button pswp__button--arrow--right"
+        title="Next (arrow right)"
+      ></button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+    </div>
+  </div>
+</div>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VWP27K6S0W"></script>
@@ -736,15 +816,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-  
-
-
-
-
-<div class="pagination">
+  <div class="pagination">
   <!-- Post list links -->
-  <ul class="post-list z-image-style">
-    <!-- Top list item --><!-- Normal list item -->
+  <ul class="post-list"><li>
+      
 
 
 
@@ -806,45 +881,25 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="post-item ">
-  <h2 class="post-title">
-    <a class="post-link" href="/announcements/2024/01/10/welcome-to-ace-of-blades.html">
-      Welcome<span class="post-badges">
-  <span class="post-badge badge-top">TOP</span>
-  <span class="post-badge badge-new">NEW</span>
-</span>
-</a>
-  </h2>
-  <div class="post-meta">
-    <span class="post-date"><i class="fa fa-calendar"></i> Jan 10, 2024</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
-  </div>
-  <div class="post-excerpt"><a  class="post-image" href="/announcements/2024/01/10/welcome-to-ace-of-blades.html" style="flex: 0 1 38.2%">
-      <div style="background-image: url(/assets/images/logo-with-title.svg); height: 160px"></div>
-    </a><a class="post-text" href="/announcements/2024/01/10/welcome-to-ace-of-blades.html">
-      <p>Here you will find blog posts about the game, notes on the development of modules, adventures, supplements and more; announcements and updates; and a community site for discussion about the game itself.
+<h2 class="post-title">
+        <a class="post-link" href="/announcements/2024/01/10/welcome-to-ace-of-blades.html">
+          Welcome
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Jan 10, 2024</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+      </div>
+      <a class="post-excerpt" href="/announcements/2024/01/10/welcome-to-ace-of-blades.html">
+        <p>
+        Here you will find blog posts about the game, notes on the development of modules, adventures, supplements and more; announcements and updates; and a community site for discussion about the game itself.
 
 Check out the community and download pages for more information.
- <span class="read_more">Read More</span></p>
-    </a>
-  </div>
-  <div class="post-tags"></div>
-</li>
-</ul>
+ <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags"></div>
+    </li></ul>
 
   <!-- Pagination links --></div>
 </div>
@@ -899,7 +954,7 @@ Check out the community and download pages for more information.
   <data class="u-url" href="/"></data>
 
   <div class="wrapper">
-    <div class="site-footer-inner"><div><span class="copyleft">&copy;</span> 2023-2024 Iron Brothers Games, LLC</div>
+    <div class="site-footer-inner"><div><span class="copyleft">&copy;</span> 2024-2024 Iron Brothers Games, LLC</div>
       <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
       generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
       another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
